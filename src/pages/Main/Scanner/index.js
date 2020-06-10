@@ -4,7 +4,7 @@ import Quagga from 'quagga';
 
 import { validateIsbn } from '../../../services/books';
 
-import { Video } from './styles';
+import { Video, Container, ScanMarker } from './styles';
 
 function Scanner() {
   let scannerAttemps = 0;
@@ -60,7 +60,22 @@ function Scanner() {
     }
   }, []);
 
-  return <Video id="video" />;
+  return (
+    <>
+      <Video id="video" />
+      <Container>
+        <ScanMarker>
+          <img
+            src="../../../../assets/images/scan-mark.svg"
+            alt=" Marca para leitura do código"
+            width="260"
+            height="260"
+          />
+          <p className="label">Aponte para o código de barras do livro.</p>
+        </ScanMarker>
+      </Container>
+    </>
+  );
 }
 
 export default Scanner;
