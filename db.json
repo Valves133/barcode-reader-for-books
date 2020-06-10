@@ -1,0 +1,13 @@
+{
+  "books":[
+    {
+      "id":"9788576082675",
+      "isbn":"9788576082675",
+      "name": "O Livro de Midard",
+      "coverUrl": "https://images-na.ssl-images-amazon.com/images/I/91+g2wQ33uL.jpg",
+      "rating": 4,
+      "promotionalPrice": 39.9,
+      "price": "99.9"
+    }
+  ]
+}

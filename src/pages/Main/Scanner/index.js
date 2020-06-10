@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 import Quagga from 'quagga';
 
@@ -6,7 +7,7 @@ import { validateIsbn } from '../../../services/books';
 
 import { Video, Container, ScanMarker } from './styles';
 
-function Scanner() {
+function Scanner({ onScan }) {
   let scannerAttemps = 0;
 
   const onDetected = result => {
@@ -17,7 +18,10 @@ function Scanner() {
     if (validateIsbn(isbn)) {
       // Consultar Api
       alert(isbn);
-    } else if (scannerAttemps >= 5) {
+      onScan(isbn);
+      return;
+    }
+    if (scannerAttemps >= 5) {
       alert(
         'Não é possivel ler o código do livro. Por favor, tente novamente.'
       );
@@ -77,5 +81,9 @@ function Scanner() {
     </>
   );
 }
+
+Scanner.propTypes = {
+  onScan: PropTypes.func,
+};
 
 export default Scanner;
